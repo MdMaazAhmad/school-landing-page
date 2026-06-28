@@ -1,8 +1,3 @@
-/* ==========================================================================
-   base.css — Reset, base elements, utilities, a11y helpers
-   ========================================================================== */
-
-/* Reset ------------------------------------------------------------------ */
 *,
 *::before,
 *::after {
@@ -74,7 +69,6 @@ h3 {
   border-radius: 4px;
 }
 
-/* Layout helpers --------------------------------------------------------- */
 .container {
   width: 100%;
   max-width: var(--container);
@@ -92,7 +86,6 @@ h3 {
   background-clip: text;
 }
 
-/* Accessibility helpers -------------------------------------------------- */
 .visually-hidden {
   position: absolute !important;
   width: 1px;
@@ -121,7 +114,6 @@ h3 {
   top: 1rem;
 }
 
-/* Shared button ---------------------------------------------------------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -151,8 +143,6 @@ h3 {
   transform: translateY(0);
 }
 
-/* Register button (header) */
-/* Register button (header) — TOP: navy icon (white arrow) + white label (navy text) */
 .btn--register {
   background: var(--c-white);
   border: 1px solid var(--c-navy-solid);
@@ -164,12 +154,12 @@ h3 {
   overflow: hidden;
 }
 .btn--register .btn__icon {
-  background: var(--c-navy); /* navy gradient square */
-  color: var(--c-white); /* diagonal arrow = white (currentColor) */
+  background: var(--c-navy); 
+  color: var(--c-white); 
 }
 .btn--register .btn__label {
   background: var(--c-white);
-  color: var(--c-navy-solid); /* navy text on white */
+  color: var(--c-navy-solid); 
   text-transform: uppercase;
   font-size: var(--fs-exm);
 }
@@ -177,7 +167,6 @@ h3 {
   display: none;
 }
 
-/* SCROLLED: white pill, navy text + horizontal arrow */
 .header--scrolled .btn--register {
   flex-direction: row-reverse;
   background: var(--c-white);
@@ -187,7 +176,7 @@ h3 {
 }
 .header--scrolled .btn--register .btn__icon {
   background: transparent;
-  color: var(--c-navy-solid); /* horizontal arrow = navy */
+  color: var(--c-navy-solid); 
   width: 42px;
 }
 .header--scrolled .btn--register .btn__label {
@@ -203,7 +192,6 @@ h3 {
   display: block;
 }
 
-/* Submit button (form) */
 .btn--submit {
   color: var(--c-white);
   background: #2a1459;
@@ -219,7 +207,6 @@ h3 {
   padding: 0.7rem 1.5rem;
 }
 
-/* Dark CTA (pre-schedule) */
 .btn--dark {
   background: var(--c-navy);
   -webkit-background-clip: text;

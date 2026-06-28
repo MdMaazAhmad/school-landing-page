@@ -1,8 +1,3 @@
-/* ==========================================================================
-   responsive.css — Tablet & mobile adaptations
-   ========================================================================== */
-
-/* ---- Large tablet / small laptop (<= 1024px) ---- */
 @media (max-width: 1024px) {
   .hero__inner {
     grid-template-columns: 1fr 1fr;
@@ -18,7 +13,6 @@
 
   .stats__list { grid-template-columns: repeat(2, 1fr); row-gap: 2rem; }
 
-  /* Exhibition: 2 cards visible */
   .exh-card { flex-basis: calc((100% - 1 * clamp(1rem, 2vw, 1.6rem)) / 2); }
 
   .footer__inner {
@@ -48,7 +42,6 @@
   .hero__pill { flex-wrap: wrap; gap: 0.6rem 1.4rem; }
   .gallery__track { height: clamp(340px, 70vw, 420px); }
 
-  /* Choose the school -> horizontal swipe slider */
   .choose__slider { position: relative; }
   .choose__grid {
     display: flex;
@@ -89,7 +82,6 @@
   }
   .choose__dot[aria-selected="true"]::before { width: 24px; background: var(--c-purple); }
 
-  /* Pre-schedule stacks */
   .preschedule__inner {
     grid-template-columns: 1fr;
     min-height: 0;
@@ -97,7 +89,6 @@
   .preschedule__copy { padding-block: var(--section-y) 1.5rem; }
   .preschedule__media { min-height: 280px; }
 
-  /* Exhibition: 1 card visible */
   .exh-card { flex-basis: 100%; min-height: 280px; }
 }
 
@@ -116,7 +107,6 @@
   .footer__inner { grid-template-columns: 1fr; }
 }
 
-/* ---- Hover-incapable (touch) devices: keep marquee running, no hover pause needed ---- */
 @media (hover: none) {
   .gallery__btn:hover,
   .exh-slider__btn:hover,

@@ -1,8 +1,5 @@
-/* ==========================================================================
-   variables.css — Design tokens (colors, type, spacing, motion)
-   ========================================================================== */
+
 :root {
-  /* Brand colors -------------------------------------------------------- */
   --c-navy-dark: #170a3e;
   --c-navy:  linear-gradient(360deg, #000E38 0%, #3F186A 100%);
   --c-navy-solid: #0b1f6b; 
@@ -20,16 +17,14 @@
 
   --c-white: #ffffff;
   --c-ink:linear-gradient(90deg, #010E39 0%, #0344A2 100%);
-  ;          /* stat / heading blue */
+          
   --c-ink-soft: #34407a;
   --c-muted: #6b6b80;
 
-  /* Hero gradient ------------------------------------------------------- */
   --grad-hero:  linear-gradient(89.72deg, #000E38 0.22%, #3F186A 52.52%);
   --grad-footer: linear-gradient(180deg, #3a1f72 0%, #2a1463 100%);
   --grad-mustvisit: linear-gradient(180deg, #2a1463 0%, #1a0d40 100%);
 
-  /* Typography ---------------------------------------------------------- */
   --font-base: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   --fs-h1: clamp(2rem, 3.6vw, 2.8rem);
@@ -41,7 +36,6 @@
   --fs-sm: 0.775rem;
   --fs-exm: 0.875rem;
 
-  /* Spacing & layout ---------------------------------------------------- */
   --container: 1440px;
   --gutter: clamp(1rem, 4vw, 2.5rem);
   --section-y: clamp(3rem, 7vw, 5.5rem);
@@ -53,7 +47,6 @@
   --shadow-sm: 0 6px 18px rgba(20, 8, 50, 0.12);
   --shadow-md: 0 18px 40px rgba(20, 8, 50, 0.22);
 
-  /* Motion -------------------------------------------------------------- */
   --speed-marquee: 32s;
   --speed-gallery: 26s;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);

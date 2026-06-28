@@ -1,15 +1,8 @@
-/* ==========================================================================
-   main.js — Premier Schools Exhibition landing page
-   Vanilla JS, no dependencies. Each widget is a small self-contained module.
-   ========================================================================== */
-   (function () {
+ (function () {
     "use strict";
   
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   
-    /* ----------------------------------------------------------------------
-       Pointer-drag helper: returns horizontal drag deltas for swipe support.
-    ---------------------------------------------------------------------- */
     function addDrag(el, opts) {
       var startX = 0, startY = 0, dragging = false, moved = false;
       var threshold = opts.threshold || 40;
@@ -43,9 +36,6 @@
       return function isMoved() { return moved; };
     }
   
-    /* ======================================================================
-       1) HERO DUAL-AXIS GALLERY
-    ====================================================================== */
     (function heroGallery() {
       var root = document.querySelector(".gallery");
       if (!root) return;
@@ -85,8 +75,7 @@
   
       if (prev) prev.addEventListener("click", function () { offset = clamp(offset + step()); apply(true); });
       if (next) next.addEventListener("click", function () { offset = clamp(offset - step()); apply(true); });
-  
-      // Swipe / drag
+ 
       addDrag(track, {
         onStart: function () { dragStartOffset = offset; track.classList.add("is-grabbing"); },
         onMove: function (dx) { offset = clamp(dragStartOffset + dx); apply(false); },
@@ -98,13 +87,11 @@
         }
       });
   
-      // Keyboard horizontal navigation
       root.addEventListener("keydown", function (e) {
         if (e.key === "ArrowRight") { e.preventDefault(); if (next) next.click(); }
         else if (e.key === "ArrowLeft") { e.preventDefault(); if (prev) prev.click(); }
       });
   
-      // Pause / play toggle (only if the control exists)
       if (toggle) {
         toggle.addEventListener("click", function () {
           var paused = root.classList.toggle("is-paused");
@@ -113,7 +100,6 @@
         });
       }
   
-      // Reduced motion: start paused, reflect in UI if the toggle is present.
       if (reduceMotion) {
         root.classList.add("is-paused");
         if (toggle) {
@@ -125,10 +111,7 @@
       window.addEventListener("resize", function () { offset = clamp(offset); apply(false); });
       apply(false);
     })();
-  
-    /* ======================================================================
-       2) SCHOOL LOGO MARQUEE
-    ====================================================================== */
+
     (function marquee() {
       var root = document.querySelector("[data-marquee]");
       if (!root) return;
@@ -137,9 +120,6 @@
       });
     })();
   
-    /* ======================================================================
-       3) CHOOSE-THE-SCHOOL — mobile slider pagination dots
-    ====================================================================== */
     (function chooseSlider() {
       var root = document.querySelector("[data-cards]");
       if (!root) return;
@@ -182,10 +162,6 @@
       }, { passive: true });
     })();
   
-   /* ======================================================================
-     4) EXHIBITION SLIDER (What makes this a must-visit) — infinite loop
-        Rotates the card order by one on each step, so it never hits an end.
-  ====================================================================== */
   (function exhibitionSlider() {
     var root = document.querySelector("[data-exh]");
     if (!root) return;
@@ -211,9 +187,9 @@
       var done = function () {
         track.removeEventListener("transitionend", done);
         track.style.transition = "none";
-        track.appendChild(track.children[0]);     // first card -> end
+        track.appendChild(track.children[0]);     
         track.style.transform = "translateX(0)";
-        void track.offsetWidth;                    // reflow so the reset isn't animated
+        void track.offsetWidth;                    
         track.style.transition = "";
         animating = false;
       };
@@ -225,7 +201,7 @@
       if (reduceMotion) { track.insertBefore(track.children[track.children.length - 1], track.children[0]); return; }
       animating = true;
       track.style.transition = "none";
-      track.insertBefore(track.children[track.children.length - 1], track.children[0]); // last -> front
+      track.insertBefore(track.children[track.children.length - 1], track.children[0]);
       track.style.transform = "translateX(" + (-stepPx()) + "px)";
       void track.offsetWidth;
       track.style.transition = "";
@@ -242,7 +218,7 @@
       else if (e.key === "ArrowLeft") { e.preventDefault(); goPrev(); restart(); }
     });
 
-    // swipe
+  
     var startX = 0, dragging = false;
     track.addEventListener("pointerdown", function (e) { dragging = true; startX = e.clientX; });
     window.addEventListener("pointerup", function (e) {
@@ -251,7 +227,6 @@
       if (Math.abs(dx) > 50) { (dx < 0 ? goNext : goPrev)(); restart(); }
     });
 
-    // gentle autoplay (off under reduced motion), pause on hover/focus
     var timer = null;
     function startAuto() { if (reduceMotion) return; stopAuto(); timer = setInterval(goNext, 4500); }
     function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
@@ -264,9 +239,6 @@
     startAuto();
   })();
   
-    /* ----------------------------------------------------------------------
-       5) HEADER — white overlay slides up to reveal the gradient on scroll.
-    ---------------------------------------------------------------------- */
     (function header() {
       var header = document.querySelector(".header");
       if (!header) return;

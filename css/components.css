@@ -1,8 +1,3 @@
-/* ==========================================================================
-   components.css — Section & component styles (desktop-first base)
-   ========================================================================== */
-
-/* ============ HEADER ============ */
 /* ============ HEADER ============ */
 .header {
   position: sticky;
@@ -10,10 +5,10 @@
   z-index: 100;
   background: var(
     --grad-hero
-  ); /* gradient revealed when the white overlay slides up */
+  );
   transition: box-shadow 0.35s var(--ease);
 }
-/* White overlay on top of the gradient; slides up on scroll */
+
 .header::before {
   content: "";
   position: absolute;
@@ -55,7 +50,7 @@
   align-items: center;
   gap: 0;
   border-radius: var(--radius-sm);
-  overflow: hidden; /* keeps the pill corners clean when it flips to white */
+  overflow: hidden; 
   font-weight: 700;
   letter-spacing: 0.02em;
   transition:
@@ -78,7 +73,7 @@
   gap: clamp(1.5rem, 3vw, 2rem);
   align-items: center;
 }
-/* .hero__copy { max-width: 34ch; } */
+
 .hero__title {
   font-size: var(--fs-h1);
   background: var(--c-gold);
@@ -188,7 +183,6 @@
   animation-name: scroll-up;
 }
 
-/* pause on hover/focus or when JS adds .is-paused */
 .gallery:hover .gallery__strip,
 .gallery:focus-within .gallery__strip,
 .gallery.is-paused .gallery__strip {
@@ -315,17 +309,16 @@
   justify-content: center;
   gap: 0.25rem;
   text-align: center;
-  padding-inline: 0; /* was clamp(2rem,4vw,3.4rem) — that spread items apart */
+  padding-inline: 0; 
 }
 .stats__item img {
-  /* the laurels — cap their size so they hug the text */
   flex: 0 0 auto;
   width: auto;
   height: clamp(
     88px,
     8vw,
     120px
-  ); /* overrides base `img { height:auto }` that let 340px through */
+  ); 
 }
 .stats__num {
   display: block;
@@ -355,12 +348,12 @@
 .marquee {
   display: grid;
   gap: clamp(1rem, 2vw, 1.6rem);
-  overflow: hidden;                 /* clip the scrolling rows to the section */
+  overflow: hidden;                
 }
 .marquee__row {
   display: flex;
-  width: 100%;                      /* was max-content — that stretched the row off-screen */
-  overflow: hidden;                 /* this is the viewport-width mask */
+  width: 100%;                     
+  overflow: hidden;                
 }
 .marquee__group {
   display: flex;
@@ -464,7 +457,7 @@
 .preschedule {
   background: linear-gradient(120deg, #efe0fb 0%, #e3d0f8 100%);
 
-  overflow: hidden; /* safety for the right-edge bleed */
+  overflow: hidden; 
 }
 .preschedule__inner {
   display: grid;
@@ -517,7 +510,7 @@
   position: relative;
   margin-right: calc(
     -1 * var(--gutter)
-  ); /* photo reaches the container's right edge */
+  ); 
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 34%);
   mask-image: linear-gradient(to right, transparent 0%, #000 34%);
 }
@@ -532,11 +525,11 @@
 .mustvisit {
   background: var(--grad-mustvisit);
   color: var(--c-white);
-  padding-block: var(--section-y) clamp(6rem, 10vw, 9rem);   /* a touch more room for the curve */
+  padding-block: var(--section-y) clamp(6rem, 10vw, 9rem);   
   position: relative;
   overflow: hidden;
 }
-/* white CONCAVE (valley) divider — dips down in the centre */
+
 .mustvisit::after {
   content: "";
   position: absolute;
@@ -545,8 +538,7 @@
   background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201200%20150%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C0%20Q600%2C95%201200%2C0%20L1200%2C150%20L0%2C150%20Z%27%20fill%3D%27%23ffffff%27%2F%3E%3C%2Fsvg%3E") no-repeat bottom center / 100% 100%;
   z-index: 0;
 }
-/* title must be solid white — override the .section-title gradient-clip,
-   which otherwise paints dark navy text (invisible on this dark section) */
+
 .mustvisit__title {
   position: relative;
   z-index: 2;
@@ -590,25 +582,24 @@
   position: relative;
   z-index: 3;
   margin-top: clamp(1.5rem, 3vw, 2.5rem);
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);   /* lift them above the white curve */
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);   
 }
 .exh-slider__btn {
   width: 56px; height: 56px;
   display: grid; place-items: center;
   border-radius: 50%;
   background: transparent;
-  color: var(--c-white);                    /* white arrow */
+  color: var(--c-white);                   
   border: 2px solid rgba(255, 255, 255, 0.85);
   transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
 }
 .exh-slider__btn:hover,
 .exh-slider__btn:focus-visible {
-  background: var(--c-white);               /* white fill on hover */
-  color: var(--c-navy-solid);              /* arrow turns navy so it stays visible */
+  background: var(--c-white);              
+  color: var(--c-navy-solid);             
   border-color: var(--c-white);
 }
 
-/* next button now matches the outlined style (no permanent white fill) */
 .exh-slider__btn--solid {
   background: transparent;
   color: var(--c-white);
@@ -623,7 +614,7 @@
 
 /* ============ FOOTER ============ */
 .footer {
-  background: linear-gradient(180deg, #43217f 0%, #0a0930 100%);  /* purple → deep navy */
+  background: linear-gradient(180deg, #43217f 0%, #0a0930 100%); 
   color: var(--c-white);
 }
 .footer__inner {
@@ -639,8 +630,8 @@
   width: 46px; height: 46px;
   display: inline-grid; place-items: center;
   border-radius: 12px;
-  background: rgba(231, 218, 248, 0.92);   /* soft lavender square */
-  color: var(--c-purple);                  /* purple glyph */
+  background: rgba(231, 218, 248, 0.92);   
+  color: var(--c-purple);                 
   margin-bottom: 1rem;
 }
 .footer__heading { font-weight: 700; font-size: 1.15rem; margin-bottom: 0.6rem; }
@@ -661,9 +652,9 @@
   text-align: center;
   font-size: 0.95rem;
   padding-block: 1.4rem;
-  background: var(--c-white);          /* white copyright bar */
-  color: var(--c-navy-solid);          /* dark text so it's readable */
-  border-top: none;                    /* drop the divider line; the colour change separates it now */
+  background: var(--c-white);         
+  color: var(--c-navy-solid);         
+  border-top: none;                  
 }
 
 /* ============ REDUCED MOTION ============ */
