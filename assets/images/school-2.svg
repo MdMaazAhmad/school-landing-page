@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 120" role="img" aria-label="Shrewsbury Intl. logo placeholder">
+  <rect width="220" height="120" fill="#ffffff"/>
+  <circle cx="110" cy="42" r="22" fill="none" stroke="#1c3f8f" stroke-width="3"/>
+  <path d="M110 26 l6 12 h-12 z" fill="#1c3f8f"/>
+  <text x="110" y="80" text-anchor="middle" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#1c3f8f">Shrewsbury Intl.</text>
+  <text x="110" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" letter-spacing="1.5" fill="#666">BANGKOK</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" role="img" aria-label="Premier Schools Exhibition logo">
+  <rect x="6" y="6" width="138" height="138" rx="10" fill="#ffffff"/>
+  <rect x="12" y="12" width="126" height="126" rx="7" fill="#1f6fc4"/>
+  <rect x="20" y="16" width="70" height="16" rx="3" fill="#f2b417"/>
+  <text x="55" y="28" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#1a2a6b">22nd EDITION</text>
+  <rect x="98" y="16" width="34" height="22" rx="3" fill="#ffffff"/>
+  <path d="M104 34 l8 -14 l3 6 l5 -8 l6 16 z" fill="#e23b2e"/>
+  <text x="75" y="62" text-anchor="middle" font-family="Arial" font-size="20" font-weight="800" fill="#ffffff">Premier</text>
+  <text x="75" y="86" text-anchor="middle" font-family="Arial" font-size="20" font-weight="800" fill="#ffffff">Schools</text>
+  <rect x="20" y="96" width="110" height="30" rx="4" fill="#f2b417"/>
+  <text x="75" y="118" text-anchor="middle" font-family="Arial" font-size="20" font-weight="800" fill="#1a2a6b">Exhibition</text>
+</svg>

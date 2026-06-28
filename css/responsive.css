@@ -1,0 +1,124 @@
+/* ==========================================================================
+   responsive.css — Tablet & mobile adaptations
+   ========================================================================== */
+
+/* ---- Large tablet / small laptop (<= 1024px) ---- */
+@media (max-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "copy    enquire"
+      "gallery gallery";
+    row-gap: 2.2rem;
+  }
+  .hero__copy    { grid-area: copy; }
+  .enquire       { grid-area: enquire; align-self: start; }
+  .hero__gallery { grid-area: gallery; }
+  .gallery__track { height: clamp(360px, 60vw, 460px); }
+
+  .stats__list { grid-template-columns: repeat(2, 1fr); row-gap: 2rem; }
+
+  /* Exhibition: 2 cards visible */
+  .exh-card { flex-basis: calc((100% - 1 * clamp(1rem, 2vw, 1.6rem)) / 2); }
+
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(1.5rem, 4vw, 3rem);
+    row-gap: 2.4rem;
+  }
+  .footer__brand { grid-column: 1 / -1; } 
+}
+
+/* ---- Tablet (<= 768px) ---- */
+@media (max-width: 768px) {
+  :root { --section-y: clamp(2.6rem, 8vw, 3.6rem); }
+
+  .header__inner { min-height: 70px; }
+  .header__logo { width: 58px; height: 58px; }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "gallery"
+      "enquire";
+    text-align: left;
+  }
+  .hero__copy { max-width: none; }
+  .hero__pill { flex-wrap: wrap; gap: 0.6rem 1.4rem; }
+  .gallery__track { height: clamp(340px, 70vw, 420px); }
+
+  /* Choose the school -> horizontal swipe slider */
+  .choose__slider { position: relative; }
+  .choose__grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  .choose__grid::-webkit-scrollbar { display: none; }
+  .choose-card {
+    flex: 0 0 82%;
+    scroll-snap-align: center;
+    min-height: 380px;
+  }
+  .choose__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.4rem;
+  }
+  .choose__dot {
+    width: 24px; height: 24px;
+    display: grid; place-items: center;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  .choose__dot::before {
+    content: "";
+    width: 9px; height: 9px;
+    border-radius: 999px;
+    background: #cfc3e6;
+    transition: width 0.25s var(--ease), background-color 0.25s var(--ease);
+  }
+  .choose__dot[aria-selected="true"]::before { width: 24px; background: var(--c-purple); }
+
+  /* Pre-schedule stacks */
+  .preschedule__inner {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .preschedule__copy { padding-block: var(--section-y) 1.5rem; }
+  .preschedule__media { min-height: 280px; }
+
+  /* Exhibition: 1 card visible */
+  .exh-card { flex-basis: 100%; min-height: 280px; }
+}
+
+/* ---- Mobile (<= 520px) ---- */
+@media (max-width: 520px) {
+  .header__inner { gap: 0.5rem; }
+  .btn--register .btn__label { padding-inline: 0.8rem; font-size: 0.78rem; }
+
+  .hero__title-line--xl { font-size: clamp(2.4rem, 11vw, 3.2rem); }
+  .hero__pill { width: 100%; }
+  .gallery__track { height: 360px; }
+
+  .stats__list { grid-template-columns: 1fr; }
+  .stats__item { padding-inline: 3rem; }
+
+  .footer__inner { grid-template-columns: 1fr; }
+}
+
+/* ---- Hover-incapable (touch) devices: keep marquee running, no hover pause needed ---- */
+@media (hover: none) {
+  .gallery__btn:hover,
+  .exh-slider__btn:hover,
+  .footer__social-link:hover { background: rgba(255, 255, 255, 0.16); }
+}
